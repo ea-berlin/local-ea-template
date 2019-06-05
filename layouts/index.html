@@ -1,51 +1,138 @@
 {{ partial "header.html" . }}
-{{/* partial "debug.html" . */}}
-{{ partial "jumbotron.html" . }}
+{{ partial "debug.html" . }}
+{{/* partial "jumbotron.html" . */}}
 
-<div class="container-fluid no-gutter">
+<!-- <div class="container-fluid no-gutter">
   <div id="top-banner" class="row banner-section" style="background-image:url('{{ .Site.BaseURL}}/img/top-banner.jpg')">
     <div class="all-center"><span class="banner-section-text">{{ .Site.Params.homepage.topBannerText }}</span></div>
   </div>
-</div>
+</div> -->
 
-<section class="text-center">
+<section>
   <div class="container banner-section text-banner">
-      <p class="lead">{{ .Site.Params.homepage.leadText }}</p>
-
-      <container>
-        <div class="row align-items-center">
-          <div class="col-lg-4">
-            <h3>{{ .Site.Params.homepage.firstSectionHeader }}</h3>
-          </div>
-          <div class="col-lg-8">
-            <p>{{ with .Site.GetPage "page" "homepage/_first_section_text" }}{{ .Content | markdownify }}{{ end }}</p>
-          </div>
+    <container>
+      <div class="row">
+        <div class="col-lg-5 block-text">
+          {{ with .Site.GetPage "page" "homepage/_first_section_text" }}{{ .Content | markdownify }}{{ end }}
+          <p class="text-center"><a class="btn-lg btn-primary" href="https://www.effectivealtruism.org/resources/">Learn More</a></p>
         </div>
-        <div class="row align-items-center">
-          <div class="col-lg-4">
-            <h3>{{ .Site.Params.homepage.secondSectionHeader }}</h3>
-          </div>
-          <div class="col-lg-8">
-            <p>{{ with .Site.GetPage "page" "homepage/_second_section_text" }}{{ .Content | markdownify }}{{ end }}</p>
-          </div>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-6">
+          <!-- <h3>{{ .Site.Params.homepage.firstSectionHeader }}</h3> -->
+          <iframe width="560" height="315" src="{{ .Site.Params.homepage.introductoryVideo }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        <div class="row align-items-center">
-          <div class="col-lg-4">
-            <h3>{{ .Site.Params.homepage.thirdSectionHeader }}</h3>
-          </div>
-          <div class="col-lg-8">
-            <p>{{ with .Site.GetPage "page" "homepage/_third_section_text" }}{{ .Content | markdownify }}{{ end }}</p>
-          </div>
-        </div>
-      </container>
+      </div>
+    </container>
   </div>
 
-<div class="container-fluid no-gutter">
-  <div id="ea-network-banner" class="row banner-section" style="background-image:url('{{ .Site.BaseURL}}/img/bottom-banner.jpg')">
-    <div class="all-center"><span class="banner-section-text">{{ .Site.Params.homepage.bottomBannerText }}</span></div>
+  <div class="container-fluid no-gutter">
+    <div id="top-banner" class="dark-banner-section" style="background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('{{ .Site.BaseURL}}/img/top-banner.jpg')">
+      <div class="container banner-section text-banner">
+        <container>
+          <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 all-center">
+              {{ with .Site.GetPage "page" "homepage/_guiding_principles" }}{{ .Content | markdownify }}{{ end }}
+            </div>
+            <div class="col-lg-2"></div>
+          </div>
+        </container>
+      </div>
+    </div>
   </div>
-</div>
-</section>
+
+  <div class="container banner-section text-banner">
+    <container>
+      <div class="row">
+        <div class="col-lg-4">
+          <img src="https://lh4.googleusercontent.com/XR1cPRM3oVKFTxSraUbccvWKvASO4J61viDwd6qp2AWDFNvJCwOPrTVESHHZwrDkEUqa07d1V99oWnIpSfdnNsbM67soC6jBsK1OsODqjeshcVStg-QYO1pUibUIwLbKfMcTtM-k-zs" alt="ea-meetup" width="100%">
+          <!-- <h3>{{ .Site.Params.homepage.secondSectionHeader }}</h3> -->
+        </div>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-7 block-text">
+          {{ with .Site.GetPage "page" "homepage/_second_section_text" }}{{ .Content | markdownify }}{{ end }}
+        </div>
+      </div>
+    </container>
+  </div>
+
+  <!-- <div class="container-fluid no-gutter">
+    <div id="ea-network-banner" class="row banner-section" style="background-image:url('{{ .Site.BaseURL}}/img/bottom-banner.jpg')">
+      <div class="all-center"><span class="banner-section-text">{{ .Site.Params.homepage.bottomBannerText }}</span></div>
+    </div>
+  </div> -->
+  </section>
+
+  <div class="container banner-section text-banner">
+    <!-- <div class="row align-items-center">
+      <div class="col-lg-12 text-center text-banner">
+        <h2>{{ .Site.Params.homepage.leadText }}</h2>
+      </div>
+    </div> -->
+    <container>
+      <div class="row align-items-center">
+        <div class="col-lg-4 text-center">
+          <h3>Join Us</h3>
+          <img id="local-contact_form" src="{{ .Site.BaseURL}}/img/edit.svg" style="height: 100px; padding-bottom: 1em;"/>
+          <p>{{ with .Site.GetPage "page" "homepage/_sign_up_form" }}{{ .Content | markdownify }}{{ end }}</p>
+        </div>
+        <div class="col-lg-4 text-center">
+          <h3>Contact Us</h3>
+          <img id="local-newsletter" src="{{ .Site.BaseURL}}/img/envelope.svg" style="height: 100px; padding-bottom: 1em;"/>
+
+          <p>{{ with .Site.GetPage "page" "homepage/_contact" }}{{ .Content | markdownify }}{{ end }}</p>
+        </div>
+        <div class="col-lg-4 text-center">
+          <h3>Stay Updated</h3>
+          <img id="local-group" src="{{ .Site.BaseURL}}/img/facebook.svg" style="height: 90px; padding-bottom: 1em; padding-top: 5px;"/>
+          <p>{{ with .Site.GetPage "page" "homepage/_newsletter" }}{{ .Content | markdownify }}{{ end }}</p>
+        </div>
+      </div>
+    </container>
+  </div>
+
+  <div class="container-fluid no-gutter">
+    <div id="ea-network-banner" class="row dark-banner-section" style="background-image:url('{{ .Site.BaseURL}}/img/bottom-banner.jpg')">
+      <div class="all-center"><span class="banner-section-text"> </span></div>
+    </div>
+  </div>
+
+  <div class="container banner-section text-banner">
+    <div class="row align-items-center">
+      <div class="col-lg-12 text-center text-banner">
+        <h2>{{ .Site.Params.homepage.firstSectionHeader }}</h2>
+      </div>
+    </div>
+    <container>
+      <div class="row align-items-center">
+        <div class="col-lg-4">
+          <p>{{ with .Site.GetPage "page" "homepage/_career" }}{{ .Content | markdownify }}{{ end }}</p>
+        </div>
+        <div class="col-lg-4">
+          <p>{{ with .Site.GetPage "page" "homepage/_learn_more" }}{{ .Content | markdownify }}{{ end }}</p>
+        </div>
+        <div class="col-lg-4">
+          <p>{{ with .Site.GetPage "page" "homepage/_rationalists" }}{{ .Content | markdownify }}{{ end }}</p>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-lg-12 text-center text-banner">
+          <a class="btn-lg btn-primary" href="https://www.effectivealtruism.org/get-involved/">Get Involved</a>
+        </div>
+      </div>
+    </container>
+  </div>
+
+  <!-- <div class="row align-items-center">
+    <div class="col-lg-4">
+      <h3>{{ .Site.Params.homepage.thirdSectionHeader }}</h3>
+    </div>
+    <div class="col-lg-8">
+      <p>{{ with .Site.GetPage "page" "homepage/_third_section_text" }}{{ .Content | markdownify }}{{ end }}</p>
+    </div>
+  </div> -->
+
+
 
 
 {{ partial "footer.html" . }}

@@ -28,8 +28,8 @@ textarea {
   font-size: 1.9em;
 }
 
-.row.banner-section {
-  min-height: 350px;
+.dark-banner-section {
+  min-height: 400px;
   position: relative;
   max-width: 100%;
   margin-top: 1.5em;
@@ -38,6 +38,15 @@ textarea {
   text-shadow: 0 0 8px #000;
   background-size: cover;
   background-position: 60%;
+}
+
+.dark-banner-section * a {
+  color: white;
+}
+
+.inverted-color {
+  color: white;
+  text-shadow: 0 0 8px #000;
 }
 
 .all-center {
@@ -68,6 +77,10 @@ textarea {
 .regular-page-container {
   padding-top: 2.5em;
   padding-bottom: 2.5em;
+}
+
+.block-text > p {
+  text-align: justify;
 }
 
 #ea-main-logo {
